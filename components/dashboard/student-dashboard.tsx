@@ -39,7 +39,7 @@ export function StudentDashboard({ userId }: StudentDashboardProps) {
       const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 second timeout
 
       try {
-        const response = await fetch(`/api/students/${userId}/stats`, {
+        const response = await fetch(`/api/students/${userId}`, {
           signal: controller.signal,
         })
 

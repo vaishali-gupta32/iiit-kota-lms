@@ -221,7 +221,7 @@ export function ProfileDialog({ open, onOpenChange }: ProfileDialogProps) {
                 <CardContent className="space-y-4">
                   <div className="flex items-center space-x-4">
                     <Avatar className="w-20 h-20">
-                      <AvatarImage src={formData.avatar || "/placeholder.svg"} />
+                      <AvatarImage src={formData.avatar || "/placeholde.jpg"} />
                       <AvatarFallback>
                         {formData.name
                           .split(" ")

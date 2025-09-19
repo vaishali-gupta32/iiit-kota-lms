@@ -10,6 +10,14 @@ interface TeacherDashboardProps {
   userId: string
 }
 
+type Activity = {
+  id: number
+  type: string
+  title: string
+  status: string
+  date: string
+}
+
 export function TeacherDashboard({ userId }: TeacherDashboardProps) {
   const [stats, setStats] = useState({
     totalStudents: 0,
@@ -17,7 +25,7 @@ export function TeacherDashboard({ userId }: TeacherDashboardProps) {
     pendingAssignments: 0,
     upcomingLessons: 0,
   })
-  const [recentActivities, setRecentActivities] = useState([])
+  const [recentActivities, setRecentActivities] = useState<Activity[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 

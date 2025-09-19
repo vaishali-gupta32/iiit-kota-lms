@@ -39,10 +39,16 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (user?.role === "admin") {
-      fetchDashboardData()
-    }
-  }, [user])
+  if (!user) return;
+
+  if (user.role === "admin") {
+    fetchDashboardData();
+  } else {
+    // For teacher/student/parent we don't need stats, but still stop loading
+    setLoading(false);
+  }
+}, [user]);
+
 
   const fetchDashboardData = async () => {
     try {
@@ -146,10 +152,10 @@ export default function DashboardPage() {
 
               {/* Enhanced Stats Cards with better spacing */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <StatsCard title="Students" count={stats?.counts.students || 0} year="2024/25" />
-                <StatsCard title="Teachers" count={stats?.counts.teachers || 0} year="2024/25" />
-                <StatsCard title="Parents" count={stats?.counts.parents || 0} year="2024/25" />
-                <StatsCard title="Staffs" count={stats?.counts.staffs || 0} year="2024/25" />
+                <StatsCard title="Students" count={stats?.counts.students || 0} year="2025/26" />
+                <StatsCard title="Teachers" count={stats?.counts.teachers || 0} year="2025/26" />
+                <StatsCard title="Parents" count={stats?.counts.parents || 0} year="2025/26" />
+                <StatsCard title="Staffs" count={stats?.counts.staffs || 0} year="2025/26" />
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

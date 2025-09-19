@@ -22,6 +22,10 @@ import {
   Megaphone,
   ChevronLeft,
   ChevronRight,
+  FolderCheck,
+  Calendar1,
+  Database,
+  BookCheck,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -60,7 +64,7 @@ const navItems: NavItem[] = [
   {
     title: "Subjects",
     href: "/subjects",
-    icon: BookOpen,
+    icon: BookCheck,
     roles: ["admin", "teacher", "student"],
   },
   {
@@ -72,7 +76,7 @@ const navItems: NavItem[] = [
   {
     title: "Lessons",
     href: "/lessons",
-    icon: FileText,
+    icon: BookOpen,
     roles: ["admin", "teacher", "student"],
   },
   {
@@ -88,6 +92,12 @@ const navItems: NavItem[] = [
     roles: ["admin", "teacher", "student"],
   },
   {
+    title: "Curriculum",
+    href: "/curriculum",
+    icon: FolderCheck,
+    roles: ["admin", "teacher", "student","parent"],
+  },
+  {
     title: "Results",
     href: "/results",
     icon: Trophy,
@@ -96,19 +106,13 @@ const navItems: NavItem[] = [
   {
     title: "Attendance",
     href: "/attendance",
-    icon: Calendar,
+    icon: Database,
     roles: ["admin", "teacher", "student", "parent"],
   },
   {
     title: "Events",
     href: "/events",
     icon: Calendar,
-    roles: ["admin", "teacher", "student", "parent"],
-  },
-  {
-    title: "Messages",
-    href: "/messages",
-    icon: MessageSquare,
     roles: ["admin", "teacher", "student", "parent"],
   },
   {
