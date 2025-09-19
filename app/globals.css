@@ -1,0 +1,194 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to vibrant IIIT-inspired color scheme with sapphire blue primary and lime green accent */
+  --background: oklch(1 0 0); /* Pure white for clean background */
+  --foreground: oklch(0.2 0 0); /* Very dark gray for main text */
+  --card: oklch(0.98 0 0); /* Very light gray for cards */
+  --card-foreground: oklch(0.2 0 0); /* Very dark gray for card text */
+  --popover: oklch(1 0 0); /* White for popovers */
+  --popover-foreground: oklch(0.2 0 0); /* Very dark gray for popover text */
+  --primary: oklch(0.45 0.25 240); /* Sapphire blue inspired by IIITDM Kurnool (#2D368B) */
+  --primary-foreground: oklch(1 0 0); /* White text on primary */
+  --secondary: oklch(0.65 0.3 130); /* Lime green inspired by IIITDM Kurnool (#74BD44) */
+  --secondary-foreground: oklch(0.1 0 0); /* Dark text on secondary */
+  --muted: oklch(0.96 0 0); /* Light gray for muted sections */
+  --muted-foreground: oklch(0.45 0 0); /* Medium gray for muted text */
+  --accent: oklch(0.6 0.25 25); /* Vibrant orange-red for CTAs */
+  --accent-foreground: oklch(1 0 0); /* White text on accent */
+  --destructive: oklch(0.55 0.3 15); /* Bright red for errors */
+  --destructive-foreground: oklch(1 0 0); /* White text on destructive */
+  --border: oklch(0.88 0 0); /* Light gray for borders */
+  --input: oklch(1 0 0); /* White for input backgrounds */
+  --ring: oklch(0.45 0.25 240 / 0.5); /* Sapphire blue focus ring with transparency */
+  --chart-1: oklch(0.45 0.25 240); /* Sapphire blue for charts */
+  --chart-2: oklch(0.65 0.3 130); /* Lime green for secondary chart data */
+  --chart-3: oklch(0.6 0.25 25); /* Orange-red for tertiary data */
+  --chart-4: oklch(0.55 0.3 280); /* Purple for additional data */
+  --chart-5: oklch(0.6 0.25 180); /* Teal for warning data */
+  --radius: 0.5rem; /* Moderate rounded corners */
+  --sidebar: oklch(0.98 0 0); /* Very light gray sidebar background */
+  --sidebar-foreground: oklch(0.2 0 0); /* Dark gray sidebar text */
+  --sidebar-primary: oklch(0.45 0.25 240); /* Sapphire blue for sidebar primary */
+  --sidebar-primary-foreground: oklch(1 0 0); /* White text on sidebar primary */
+  --sidebar-accent: oklch(0.65 0.3 130); /* Lime green for sidebar accent */
+  --sidebar-accent-foreground: oklch(0.1 0 0); /* Dark text on sidebar accent */
+  --sidebar-border: oklch(0.88 0 0); /* Light gray for sidebar borders */
+  --sidebar-ring: oklch(0.45 0.25 240 / 0.5); /* Sapphire blue focus ring for sidebar */
+}
+
+.dark {
+  /* Updated dark mode colors to maintain vibrant IIIT appearance */
+  --background: oklch(0.08 0 0); /* Very dark background */
+  --foreground: oklch(0.95 0 0); /* Light text */
+  --card: oklch(0.12 0 0); /* Dark card background */
+  --card-foreground: oklch(0.95 0 0); /* Light card text */
+  --popover: oklch(0.08 0 0); /* Dark popover background */
+  --popover-foreground: oklch(0.95 0 0); /* Light popover text */
+  --primary: oklch(0.55 0.25 240); /* Brighter sapphire blue for dark mode */
+  --primary-foreground: oklch(1 0 0); /* White text on primary */
+  --secondary: oklch(0.7 0.3 130); /* Brighter lime green for dark mode */
+  --secondary-foreground: oklch(0.08 0 0); /* Dark text on secondary */
+  --muted: oklch(0.15 0 0); /* Dark muted background */
+  --muted-foreground: oklch(0.7 0 0); /* Light muted text */
+  --accent: oklch(0.65 0.25 25); /* Bright orange-red accent */
+  --accent-foreground: oklch(1 0 0); /* White text on accent */
+  --destructive: oklch(0.6 0.3 15); /* Bright red for errors */
+  --destructive-foreground: oklch(1 0 0); /* Light text on destructive */
+  --border: oklch(0.2 0 0); /* Dark border */
+  --input: oklch(0.12 0 0); /* Dark input background */
+  --ring: oklch(0.55 0.25 240 / 0.5); /* Bright sapphire blue focus ring */
+  --chart-1: oklch(0.55 0.25 240); /* Bright sapphire blue for charts */
+  --chart-2: oklch(0.7 0.3 130); /* Bright lime green for charts */
+  --chart-3: oklch(0.65 0.25 25); /* Bright orange-red for charts */
+  --chart-4: oklch(0.6 0.3 280); /* Bright purple */
+  --chart-5: oklch(0.65 0.25 180); /* Bright teal */
+  --sidebar: oklch(0.1 0 0); /* Slightly lighter dark for sidebar */
+  --sidebar-foreground: oklch(0.95 0 0); /* Light sidebar text */
+  --sidebar-primary: oklch(0.55 0.25 240); /* Sapphire blue for sidebar primary */
+  --sidebar-primary-foreground: oklch(1 0 0); /* White text on sidebar primary */
+  --sidebar-accent: oklch(0.7 0.3 130); /* Lime green for sidebar accent */
+  --sidebar-accent-foreground: oklch(0.08 0 0); /* Dark text on sidebar accent */
+  --sidebar-border: oklch(0.2 0 0); /* Dark sidebar border */
+  --sidebar-ring: oklch(0.55 0.25 240 / 0.5); /* Bright sapphire blue focus ring */
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Enhanced educational-specific typography styles with better hierarchy */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold text-balance;
+  }
+
+  h1 {
+    @apply text-3xl lg:text-4xl text-primary;
+  }
+
+  h2 {
+    @apply text-2xl lg:text-3xl text-foreground;
+  }
+
+  h3 {
+    @apply text-xl lg:text-2xl text-foreground;
+  }
+
+  /* Enhanced professional card styling with vibrant accents */
+  .edu-card {
+    @apply bg-card border border-border rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 hover:border-primary/20;
+  }
+
+  /* Updated educational button styles with vibrant colors */
+  .edu-btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-md font-semibold transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .edu-btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-3 rounded-md font-semibold transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .edu-btn-accent {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90 px-6 py-3 rounded-md font-semibold transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  /* Enhanced professional form styling */
+  .edu-input {
+    @apply bg-input border border-border rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary transition-all duration-200;
+  }
+
+  /* Enhanced status indicators with vibrant colors */
+  .status-active {
+    @apply bg-secondary/20 text-secondary border border-secondary/30 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .status-pending {
+    @apply bg-accent/20 text-accent border border-accent/30 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .status-inactive {
+    @apply bg-muted text-muted-foreground border border-border px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  /* Added vibrant gradient backgrounds for special sections */
+  .iiit-gradient {
+    background: linear-gradient(135deg, oklch(0.55 0.20 250) 0%, oklch(0.80 0.18 70) 100%);
+  }
+
+  .iiit-gradient-subtle {
+    background: linear-gradient(135deg, oklch(0.55 0.20 250 / 0.1) 0%, oklch(0.80 0.18 70 / 0.1) 100%);
+  }
+}
